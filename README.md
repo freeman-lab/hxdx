@@ -59,11 +59,11 @@ and the DOM will be updated using diffing on every dispatch.
 
 Render a `virtual-dom` component and connect it to a `redux`-like store. All children can use `dx` to dispatch to the store.
 
-#### `hx('<>')`
+#### `hxdx.hx('<>')`
 
 Tagged template function for generating `virtual-dom` elements.
 
-#### `dx(action)`
+#### `hxdx.dx(action)`
 
 Dispatch action to the store.
 
