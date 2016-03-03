@@ -29,6 +29,7 @@ var reducer = function (state, action) {
       return state
   }
 }
+
 var store = require('redux').createStore(reducer, 0)
 ```
 
@@ -59,6 +60,7 @@ Then just connect a top-level component function and the store
 var app = function (state) {
   return hx`<div>${display(state)}${button()}</div>`
 }
+
 hxdx.render(app, store)
 ```
 
