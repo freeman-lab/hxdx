@@ -1,6 +1,8 @@
 # hxdx
 
-Super simple connecter for state dispatching and virtual dom updates. Use it to connect a `redux`-like store to a `virtual-dom` and set up rendering with minimal boilerplate. Exposes a `dx` function that you can use to dispatch within your components. Well-suited to writing purely functional compnents that take in state and sometimes dispatch. Uses `hyperx` for defining components and `main-loop` for rendering.
+Super simple connecter for state dispatching and virtual dom updates. Use it to connect a `redux`-like store to a `virtual-dom` and set up rendering with minimal boilerplate. Well-suited to writing purely functional compnents that take in state and sometimes dispatch. Uses `hyperx` for defining components and `main-loop` for rendering.
+
+Exposes an `hx` function for constructing components elements, and a `dx` function for dispatching to the store within your components.
 
 I wrote this because I love the `redux` design pattern, but found the `react-redux` bindings, and `react` in general, big and complex and hard to reason about. If you care about performance those are probably much better!
 
