@@ -12,7 +12,6 @@ module.exports = {
   hx: hx,
   
   render: function (el, store) {
-    console.log(el)
     dx = store.dispatch
 
     var main = require('main-loop')
