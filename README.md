@@ -32,15 +32,7 @@ var reducer = function (state, action) {
 var store = require('redux').createStore(reducer, 0)
 ```
 
-Then require `hx` and `dx` 
-
-```javascript
-var hxdx = require('hxdx')
-var hx = hxdx.hx
-var dx = hxdx.dx
-```
-
-And create your components (normally these would be in separate files)
+Then create your components (normally these would be in separate files)
 
 We'll make one that renders
 
