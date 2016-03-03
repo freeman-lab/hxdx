@@ -18,9 +18,9 @@ npm install hxdx
 
 ## example
 
-Let's say you have a `redux`-like store and want to pass its state to functional `virtual-dom` components, some of which dispatch. 
+Let's say you have a `redux`-like store and want to pass state to functional `virtual-dom` components, some of which dispatch. 
 
-With `hxdx`, you can write components for pure display
+With `hxdx`, you can write pure display components
 
 ```javascript
 var hx = require('hxdx').hx
@@ -30,7 +30,7 @@ module.exports = function (state) {
 }
 ```
 
-and others that dispatch to the store
+or ones that dispatch to the store
 
 ```javascript
 var hx = require('hxdx').hx
@@ -51,7 +51,7 @@ var hxdx = require('hxdx')
 hxdx.render(component, store)
 ```
 
-And the DOM will be updated using diffing on every dispatch.
+and the DOM will be updated using diffing on every dispatch.
 
 ## api
 
