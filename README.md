@@ -41,4 +41,4 @@ var hxdx = require('hxdx')
 hxdx.render(component, store)
 ```
 
-And the DOM will be updated with diffing on every dispatch.
+And the DOM will be updated using diffing on every dispatch.
