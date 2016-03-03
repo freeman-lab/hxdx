@@ -1,4 +1,4 @@
-var hxdx = require('../../index.js')
+var hxdx = require('../index.js')
 var redux = require('redux')
 var reducer = require('./reducer')
 var component = require('./component')

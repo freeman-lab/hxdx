@@ -1,5 +1,5 @@
-var hx = require('../../index').hx
-var dx = require('../../index').dx
+var hx = require('../index').hx
+var dx = require('../index').dx
 
 module.exports = function (state) {
   function increment () {
@@ -11,7 +11,7 @@ module.exports = function (state) {
   }
 
   return hx`
-  <div><span>${state}</span>
+  <div><span style=${{fontSize: '24px'}}>value: ${state}</span><br>
   <button onclick=${increment}>+</button>
   <button onclick=${decrement}>-</button>
   </div>
