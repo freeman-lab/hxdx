@@ -55,8 +55,8 @@ and the DOM will be updated using diffing on every dispatch.
 
 Store just needs to be an object with `subscribe`, `dispatch`, and `getState` methods. Currently supports:
 
-- `redux`
-- `store-emitter` (soon!)
+- `redux` the original
+- `store-emitter` a light-weight alternative (soon!)
 
 ## api
 
