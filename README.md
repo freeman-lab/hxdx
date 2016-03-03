@@ -18,7 +18,7 @@ npm install hxdx
 
 ## example
 
-Let's say you have a `redux`-like store and want to pass state to functional `virtual-dom` components, some of which dispatch. 
+Let's say you have a `redux`-like store and want to pass state to functional components, some of which dispatch. 
 
 With `hxdx`, you can write pure display components
 
