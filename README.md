@@ -18,25 +18,42 @@ npm install hxdx
 
 ## example
 
-Let's say you have a `redux`-like store and want to pass its state to functional components, some of which dispatch. 
-
-With `hxdx`, you can write pure display components
+Set up a simple `redux` store with one action
 
 ```javascript
-var hx = require('hxdx').hx
+var reducer = function (state, action) {
+ switch (action.type) {
+    case 'INCREMENT':
+      return state + 1
+    default:
+      return state
+  }
+}
+var store = require('redux').createStore(reducer, 0)
+```
 
-module.exports = function (state) {
-  return hx`<div><${state}</div>`
+Then require `hx` and `dx` 
+
+```javascript
+var hxdx = require('hxdx')
+var hx = hxdx.hx
+var dx = hxdx.dx
+```
+
+And create your components (normally these would be in separate files)
+
+We'll make one that renders
+
+```javascript
+var display = function (state) {
+  return hx`<div>${state}</div>`
 }
 ```
 
-or ones that dispatch to the store
+And one that dipatches
 
 ```javascript
-var hx = require('hxdx').hx
-var dx = require('hxdx').dx
-
-module.exports = function (state) {
+var button = function (state) {
   function onclick () {
     dx({type: 'INCREMENT'})
   }
@@ -44,31 +61,37 @@ module.exports = function (state) {
 }
 ```
 
-Then just connect your top-level component and store
+Then just connect a top-level component function and the store
 
 ```javascript
-var hxdx = require('hxdx')
-hxdx.render(component, store)
+var app = function (state) {
+  return hx`<div>${display(state)}${button()}</div>`
+}
+hxdx.render(app, store)
 ```
 
 and the DOM will be updated using diffing on every dispatch.
-
-Store just needs to be an object with `subscribe`, `dispatch`, and `getState` methods. Currently supports:
-
-- `redux` the original
-- `store-emitter` a light-weight alternative (soon!)
 
 ## api
 
 #### `hxdx.render(component, store, [root])`
 
-Render a `virtual-dom` component and connect it to a `redux`-like store. All children can use `dx` to dispatch to the store.
+Render a component and connect it to a store.
+
+- `component` function of state => virtual dom element
+- `store` an state store with `subscribe`, `dispatch`, and `getState` methods
+- `root` a base DOM element to add to (if undefined will create one)
+
+Store can currently come from:
+
+- `redux` the original
+- `store-emitter` a light-weight alternative (soon!)
 
 #### `hxdx.hx('<>')`
 
-Tagged template function for generating `virtual-dom` elements.
+Tagged template function for generating `virtual-dom` elements. Can be required inside any of your components.
 
 #### `hxdx.dx(action)`
 
-Dispatch action to the store.
+Dispatch action to the store. Can be required inside any of your components.
 
