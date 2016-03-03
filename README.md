@@ -8,7 +8,7 @@ I wrote this because I love the `redux` design pattern, but found the `react-red
 
 See also
 - `virtual-app` related idea with different dependencies
-- `redux-react` connector for `react` and `redux`
+- `redux-react` official connector forusing redux with react
 
 ## install
 
