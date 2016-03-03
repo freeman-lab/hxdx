@@ -1,6 +1,4 @@
-var vdom = require('virtual-dom')
-var hyperx = require('hyperx')
-var hx = hyperx(vdom.h)
+var hx = require('bel')
 
 var dx
 
@@ -14,17 +12,11 @@ module.exports = {
   render: function (el, store) {
     dx = store.dispatch
 
-    var main = require('main-loop')
-    var loop = main(store.getState(), render, vdom)
-
-    document.body.appendChild(loop.target)
-
-    function render (state) {
-      return el(state)
-    }
+    var rendered = el(store.getState())
+    document.body.appendChild(rendered)
 
     function update () {
-      loop.update(store.getState())
+      rendered.update(el(store.getState()))
     }
 
     store.subscribe(update)
