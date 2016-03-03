@@ -10,7 +10,8 @@ module.exports = function (state) {
     dx({type: 'DECREMENT'})
   }
 
-  return hx`<div><span>${state}</span>
+  return hx`
+  <div><span>${state}</span>
   <button onclick=${increment}>+</button>
   <button onclick=${decrement}>-</button>
   </div>

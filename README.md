@@ -16,8 +16,7 @@ Let's say you have a `redux` store and want to write a bunch of `virtual-dom`com
 var hx = require('hxdx').hx
 
 module.exports = function (state) {
-  return hx`<div><${state}</div>
-  `
+  return hx`<div><${state}</div>`
 }
 ```
 
@@ -31,8 +30,7 @@ module.exports = function (state) {
   function onclick () {
     dx({type: 'INCREMENT'})
   }
-  return hx`<button onclick=${onclick}>+</button>
-  `
+  return hx`<button onclick=${onclick}>+</button>`
 }
 ```
 
