@@ -74,10 +74,7 @@ Render a component and connect it to a store.
 - `store` an state store with `subscribe`, `dispatch`, and `getState` methods
 - `root` a base DOM element to add to (if undefined will create one)
 
-Store can currently come from:
-
-- `redux` the original
-- `store-emitter` a light-weight alternative (soon!)
+Store can currently come from `redux` or `store-emitter` (a light-weight alternative)
 
 #### `hxdx.hx('<>')`
 
