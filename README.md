@@ -1,6 +1,6 @@
 # hxdx
 
-Super simple connecter for state dispatching and rendering. Connects a `redux`-style store to a `virtual-dom`-style view and sets up rendering with minimal boilerplate. Works well with purely functional components that take in state and sometimes dispatch. 
+Simple connecter for state dispatching and rendering. Connects a `redux`-style store to a `virtual-dom`-style view and sets up rendering with minimal boilerplate. Works well with purely functional components that take  state and sometimes dispatch. 
 
 Exposes an `hx` function for constructing components elements, and a `dx` function for dispatching to the store within your components. Thus the name! Currently ses [`hyperx`](http://github.com/substack/hyperx) for defining components and [`main-loop`](http://github.com/Raynos/main-loop) for rendering.
 
