@@ -62,7 +62,7 @@ var app = function (state) {
 hxdx.render(app, store)
 ```
 
-and the DOM will be updated using diffing on every dispatch.
+and the DOM will be updated using diffing on every click.
 
 ## api
 
