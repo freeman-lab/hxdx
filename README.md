@@ -57,7 +57,7 @@ and the DOM will be updated using diffing on every dispatch.
 
 #### `hxdx.render(component, store, [root])`
 
-Render a `virtual-dom` component and connect it to a `redux`-like store. All child components can use `dx` to dispatch to the store.
+Render a `virtual-dom` component and connect it to a `redux`-like store. All children can use `dx` to dispatch to the store.
 
 #### `hx('<>')`
 
