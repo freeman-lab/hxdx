@@ -10,7 +10,7 @@ npm install hxdx
 
 ## example
 
-Let's say you have a `redux` store and want to write a bunch of composable `virtual-dom`components, some of which dispatch to it. 
+Let's say you have a `redux` store and want to write composable `virtual-dom`components, some of which dispatch to it. 
 
 With `hxdx`, you can write all components as functions of state, some can be display only
 
