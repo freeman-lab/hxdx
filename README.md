@@ -1,6 +1,12 @@
 # hxdx
 
-Super simple connecter for state dispatching and virtual dom updates.
+Super simple connecter for state dispatching and virtual dom updates. Use it to connect a `redux`-like store to a `virtual-dom` and set up rendering with minimal boilerplate. Exposes a `dx` function that you can use to dispatch within your components. Well-suited to writing purely functional compnents that take in state and sometimes dispatch. Uses `hyperx` for defining components and `main-loop` for rendering.
+
+I wrote this because I love the `redux` design pattern, but found the `react-redux` bindings, and `react` in general, kinda hard to reason about. If you care about performance those are probably much better!
+
+See also
+- `virtual-app` related idea with different dependencies
+- `redux-react` connector for `react` and `redux`
 
 ## install
 
@@ -10,9 +16,9 @@ npm install hxdx
 
 ## example
 
-Let's say you have a `redux` store and want to write composable `virtual-dom`components, some of which dispatch to it. 
+Let's say you have a `redux`-like store and want to pass its state to functional `virtual-dom` components, some of which dispatch. 
 
-With `hxdx`, you can write all components as functions of state, some can be display only
+With `hxdx`, you can write components for pure display
 
 ```javascript
 var hx = require('hxdx').hx
@@ -22,7 +28,7 @@ module.exports = function (state) {
 }
 ```
 
-and others can dispatch to the store
+and others that dispatch to the store
 
 ```javascript
 var hx = require('hxdx').hx
@@ -36,7 +42,7 @@ module.exports = function (state) {
 }
 ```
 
-Then just connect your top-level component and store in one-line
+Then just connect your top-level component and store
 
 ```javascript
 var hxdx = require('hxdx')
@@ -44,3 +50,18 @@ hxdx.render(component, store)
 ```
 
 And the DOM will be updated using diffing on every dispatch.
+
+## api
+
+##### hxdx.render(component, store, [root])
+
+Render a `virtual-dom` component and connect it to a `redux`-like store. All child components can use `dx` to dispatch to the store.
+
+##### `hx('<>')`
+
+Tagged template function for generating `virtual-dom` elements.
+
+##### `dx(action)`
+
+Dispatch action to the store.
+
