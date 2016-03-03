@@ -13,7 +13,7 @@ npm install hxdx
 Let's say you have a `redux` store and want to write a bunch of `virtual-dom`components. With `hxdx`, you can write components as either display only
 
 ```javascript
-var hx = require('../index').hx
+var hx = require('hxdx').hx
 
 module.exports = function (state) {
   return hx`<div><${state}</div>
@@ -24,8 +24,8 @@ module.exports = function (state) {
 Or with actions that dispatch to the store
 
 ```javascript
-var hx = require('../index').hx
-var dx = require('../index').dx
+var hx = require('hxdx').hx
+var dx = require('hxdx').dx
 
 module.exports = function (state) {
   function onclick () {
