@@ -10,7 +10,9 @@ npm install hxdx
 
 ## example
 
-Let's say you have a `redux` store and want to write a bunch of `virtual-dom`components. With `hxdx`, you can write components as either display only
+Let's say you have a `redux` store and want to write a bunch of composable `virtual-dom`components, some of which dispatch to it. 
+
+With `hxdx`, you can write all components as functions of state, some can be display only
 
 ```javascript
 var hx = require('hxdx').hx
@@ -20,7 +22,7 @@ module.exports = function (state) {
 }
 ```
 
-Or with actions that dispatch to the store
+and others can dispatch to the store
 
 ```javascript
 var hx = require('hxdx').hx
