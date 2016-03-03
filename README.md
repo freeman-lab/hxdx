@@ -1,10 +1,10 @@
 # hxdx
 
-Super simple connecter for state dispatching and rendering. Connects a `redux`-like store to a `virtual-dom` and sets up rendering with minimal boilerplate. Works well with purely functional components that take in state and sometimes dispatch. 
+Super simple connecter for state dispatching and rendering. Connects a `redux`-like store to a `virtual-dom`-style view and sets up rendering with minimal boilerplate. Works well with purely functional components that take in state and sometimes dispatch. 
 
-Exposes an `hx` function for constructing components elements, and a `dx` function for dispatching to the store within your components. Thus the name! Uses `hyperx` for defining components and `main-loop` for rendering.
+Exposes an `hx` function for constructing components elements, and a `dx` function for dispatching to the store within your components. Thus the name! Currently ses [`hyperx`](http://github.com/substack/hyperx) for defining components and [`main-loop`](http://github.com/Raynos/main-loop) for rendering.
 
-I wrote this because I love the `redux` design pattern, but found the `react-redux` bindings, and `react` in general, big and complex and hard to reason about. If you care about performance those are probably much better!
+I wrote this because I love the `redux` design pattern, but found the `react-redux` bindings, and `react` in general, big and complex and hard to reason about. If you care about performance those are supposed to be much better!
 
 See also
 - `virtual-app` related idea with different dependencies
@@ -52,6 +52,11 @@ hxdx.render(component, store)
 ```
 
 and the DOM will be updated using diffing on every dispatch.
+
+Store just needs to be an object with `subscribe`, `dispatch`, and `getState` methods. Currently supports:
+
+- `redux`
+- `store-emitter` (soon!)
 
 ## api
 
