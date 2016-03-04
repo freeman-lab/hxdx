@@ -7,8 +7,8 @@ Exposes an `hx` function for constructing components elements, and a `dx` functi
 I wrote this because I love the `redux` design pattern, but found the `react-redux` bindings, and `react` in general, big and complex and hard to reason about. If you care about performance those are supposed to be much better!
 
 See also
-- `virtual-app` related idea with different dependencies
-- `redux-react` official connector for using redux with react
+- [`virtual-app`](https://github.com/sethvincent/virtual-app) related idea with different dependencies
+- [`redux-react`](https://github.com/reactjs/react-redux) official connector for using redux with react
 
 ## install
 
