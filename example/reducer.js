@@ -10,7 +10,7 @@ var reducer = function counter (state, action) {
     case 'DECREMENT':
       return state - 1
     case 'ENTER':
-      return parseInt(action.value) || 0
+      return parseInt(action.value, 16) || 0
     default:
       return state
   }

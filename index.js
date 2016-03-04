@@ -5,12 +5,12 @@ var hx = hyperx(vdom.h)
 var dx
 
 module.exports = {
-  dx: function (action) {    
+  dx: function (action) {
     dx(action)
   },
 
   hx: hx,
-  
+
   render: function (el, store) {
     dx = store.dispatch
 
@@ -29,4 +29,4 @@ module.exports = {
 
     store.subscribe(update)
   }
-}  
+}
