@@ -15,6 +15,7 @@ module.exports = {
     dx = store.dispatch
 
     var main = require('main-loop')
+
     var loop = main(store.getState(), render, vdom)
 
     document.body.appendChild(loop.target)
