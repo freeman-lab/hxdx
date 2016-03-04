@@ -3,17 +3,19 @@ var hx = require('bel')
 var dx
 
 module.exports = {
-  dx: function (action) {    
+  dx: function (action) {
     dx(action)
   },
 
   hx: hx,
-  
-  render: function (el, store) {
+
+  render: function (el, store, root) {
     dx = store.dispatch
 
     var rendered = el(store.getState())
-    document.body.appendChild(rendered)
+
+    if (root) root.appendChild(rendered)
+    else document.body.appendChild(rendered)
 
     function update () {
       rendered.update(el(store.getState()))
@@ -21,4 +23,4 @@ module.exports = {
 
     store.subscribe(update)
   }
-}  
+}

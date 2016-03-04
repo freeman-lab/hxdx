@@ -1,14 +1,16 @@
 # hxdx
 
-Super simple connecter for state dispatching and rendering. Connects a `redux`-like store to a `virtual-dom` and sets up rendering with minimal boilerplate. Works well with purely functional components that take in state and sometimes dispatch. 
+Simple connecter for state dispatching and rendering. Connects a `redux`-style store to a `virtual-dom`-style view and sets up rendering with minimal boilerplate. Works well with functional components that take state and sometimes dispatch. 
 
-Exposes an `hx` function for constructing components elements, and a `dx` function for dispatching to the store within your components. Thus the name! Uses `hyperx` for defining components and `main-loop` for rendering.
+Exposes an `hx` function for constructing components elements, and a `dx` function for dispatching to the store within your components. Thus the name! Currently uses [`hyperx`](http://github.com/substack/hyperx) for defining components and [`main-loop`](http://github.com/Raynos/main-loop) for rendering. Doesn't require `redux`, just something that acts as a state store.
 
-I wrote this because I love the `redux` design pattern, but found the `react-redux` bindings, and `react` in general, big and complex and hard to reason about. If you care about performance those are probably much better!
+I wrote this because I love the `redux` design pattern, but found the `react-redux` bindings, and `react` in general, big and complex and hard to reason about. If you care about performance those are supposed to be much faster!
 
 See also
-- `virtual-app` related idea with different dependencies
-- `redux-react` official connector for using redux with react
+- [`virtual-app`](https://github.com/sethvincent/virtual-app) related idea with different dependencies
+- [`redux-react`](https://github.com/reactjs/react-redux) official connector for using redux with react
+
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 ## install
 
@@ -18,25 +20,35 @@ npm install hxdx
 
 ## example
 
-Let's say you have a `redux`-like store and want to pass its state to functional components, some of which dispatch. 
-
-With `hxdx`, you can write pure display components
+Set up a simple `redux` store with one action
 
 ```javascript
-var hx = require('hxdx').hx
+var reducer = function (state, action) {
+ switch (action.type) {
+    case 'INCREMENT':
+      return state + 1
+    default:
+      return state
+  }
+}
 
-module.exports = function (state) {
-  return hx`<div><${state}</div>`
+var store = require('redux').createStore(reducer, 0)
+```
+
+Then create your components (normally these would be in separate files)
+
+We'll make one that renders
+
+```javascript
+var display = function (state) {
+  return hx`<div>${state}</div>`
 }
 ```
 
-or ones that dispatch to the store
+And one that dipatches
 
 ```javascript
-var hx = require('hxdx').hx
-var dx = require('hxdx').dx
-
-module.exports = function (state) {
+var button = function (state) {
   function onclick () {
     dx({type: 'INCREMENT'})
   }
@@ -44,26 +56,35 @@ module.exports = function (state) {
 }
 ```
 
-Then just connect your top-level component and store
+Then just connect a top-level component function and the store
 
 ```javascript
-var hxdx = require('hxdx')
-hxdx.render(component, store)
+var app = function (state) {
+  return hx`<div>${display(state)}${button()}</div>`
+}
+
+hxdx.render(app, store)
 ```
 
-and the DOM will be updated using diffing on every dispatch.
+and the DOM will be updated using diffing on every click.
 
 ## api
 
 #### `hxdx.render(component, store, [root])`
 
-Render a `virtual-dom` component and connect it to a `redux`-like store. All children can use `dx` to dispatch to the store.
+Render a component and connect it to a store.
+
+- `component` function mapping state to a virtual dom element
+- `store` a state store with `subscribe`, `dispatch`, and `getState` methods
+- `root` a base DOM element to append to (if undefined will appemd to body)
+
+Store can currently come from `redux` or `minidux` (coming soon!).
 
 #### `hxdx.hx('<>')`
 
-Tagged template function for generating `virtual-dom` elements.
+Tagged template function for generating `virtual-dom` elements. Can be required inside any of your components.
 
 #### `hxdx.dx(action)`
 
-Dispatch action to the store.
+Dispatch action to the store. Can be required inside any of your components.
 
