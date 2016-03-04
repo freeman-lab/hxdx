@@ -74,9 +74,9 @@ and the DOM will be updated using diffing on every click.
 
 Render a component and connect it to a store.
 
-- `component` function of state => virtual dom element
+- `component` function mapping state to a virtual dom element
 - `store` a state store with `subscribe`, `dispatch`, and `getState` methods
-- `root` a base DOM element to add to (if undefined will create one)
+- `root` a base DOM element to append to (if undefined will appemd to body)
 
 Store can currently come from `redux` or `minidux` (coming soon!).
 

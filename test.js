@@ -29,6 +29,22 @@ test('display', function (t) {
   t.end()
 })
 
+test('root', function (t) {
+  var display = function (state) {
+    return hx`<div id='display'>${state}</div>`
+  }
+
+  var root = document.body.appendChild(document.createElement('div'))
+
+  hxdx.render(display, store, root)
+
+  var el = document.querySelector('#display')
+
+  t.equal(el.innerHTML, '0')
+  t.equal(el.id, 'display')
+  t.end()
+})
+
 test('dispatch', function (t) {
   var display = function (state) {
     return hx`<div id='display'>${state}</div>`
