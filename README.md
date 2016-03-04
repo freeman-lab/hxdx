@@ -4,7 +4,7 @@ Simple connecter for state dispatching and rendering. Connects a `redux`-style s
 
 Exposes an `hx` function for constructing components elements, and a `dx` function for dispatching to the store within your components. Thus the name! Currently uses [`hyperx`](http://github.com/substack/hyperx) for defining components and [`main-loop`](http://github.com/Raynos/main-loop) for rendering. Doesn't require `redux`, just something that acts as a state store.
 
-I wrote this because I love the `redux` design pattern, but found the `react-redux` bindings, and `react` in general, big and complex and hard to reason about. If you care about performance those are supposed to be much better!
+I wrote this because I love the `redux` design pattern, but found the `react-redux` bindings, and `react` in general, big and complex and hard to reason about. If you care about performance those are supposed to be much faster!
 
 See also
 - [`virtual-app`](https://github.com/sethvincent/virtual-app) related idea with different dependencies
