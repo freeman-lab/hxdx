@@ -5,4 +5,4 @@ var component = require('./component')
 
 var store = redux.createStore(reducer, 0)
 
-hxdx.render(component, store, root)
+hxdx.render(component, store)
