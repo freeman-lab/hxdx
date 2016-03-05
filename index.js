@@ -1,16 +1,18 @@
-var _ = require('lodash')
+var get = require('lodash.get')
+var fromPairs = require('lodash.frompairs')
+var map = require('lodash.map')
 var vdom = require('virtual-dom')
 var hyperx = require('hyperx')
 var hx = hyperx(vdom.h)
 
 var dx, globalStore
 
-const filterState = function (mapping, state) {
+var filterState = function (mapping, state) {
   if (!mapping) {
     return state
   }
-  const pairs = _.map(mapping, function (path, prop) { return [prop, _.get(state, path)] })
-  return _.fromPairs(pairs)
+  const pairs = map(mapping, function (path, prop) { return [prop, get(state, path)] })
+  return fromPairs(pairs)
 }
 
 module.exports = {
