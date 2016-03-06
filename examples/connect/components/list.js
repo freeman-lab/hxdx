@@ -12,7 +12,7 @@ function list (state) {
   }
 
   return hx`
-    <ul>${greetings()}</ul>
+    <ul id="greetings">${greetings()}</ul>
   `
 }
 

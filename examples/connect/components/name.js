@@ -12,7 +12,7 @@ function name (state) {
   }
 
   return hx`
-    <input type="text" value="${state.name || ''}" oninput=${updateName}>
+    <input id="name" type="text" value="${state.name || ''}" oninput=${updateName}>
   `
 }
 

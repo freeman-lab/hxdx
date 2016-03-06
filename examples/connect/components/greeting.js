@@ -4,7 +4,7 @@ const connect = hxdx.connect
 
 function greeting (state) {
   return hx`
-    <span>${state.name}</span>
+    <span id="greeting">${state.name}</span>
   `
 }
 

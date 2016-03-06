@@ -1,4 +1,4 @@
-var hxdx = require('./index.js')
+var hxdx = require('../index.js')
 var hx = hxdx.hx
 var dx = hxdx.dx
 var test = require('tape')
@@ -15,7 +15,7 @@ var reducer = function (state, action) {
 
 var store = redux.createStore(reducer, 0)
 
-test('display', function (t) {
+test('simple-display', function (t) {
   var display = function (state) {
     return hx`<div id='display'>${state}</div>`
   }
@@ -29,7 +29,7 @@ test('display', function (t) {
   t.end()
 })
 
-test('root', function (t) {
+test('simple-root', function (t) {
   var display = function (state) {
     return hx`<div id='display'>${state}</div>`
   }
@@ -45,7 +45,7 @@ test('root', function (t) {
   t.end()
 })
 
-test('dispatch', function (t) {
+test('simple-dispatch', function (t) {
   var display = function (state) {
     return hx`<div id='display'>${state}</div>`
   }
