@@ -1,5 +1,6 @@
-var hx = require('../index').hx
-var dx = require('../index').dx
+var hxdx = require('../../index')
+var hx = hxdx.hx
+var dx = hxdx.dx
 
 module.exports = function (state) {
   function increment () {
