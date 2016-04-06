@@ -1,7 +1,6 @@
 # hxdx
 
 [![NPM version][npm-image]][npm-url]
-![experimental][experimental-image]
 [![js-standard-style][standard-image]][standard-url]
 
 > simple connecter for state dispatching and rendering. 
