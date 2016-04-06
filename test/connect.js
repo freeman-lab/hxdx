@@ -1,12 +1,9 @@
-var assign = require('object-assign')
 var forEach = require('lodash.foreach')
 var test = require('tape')
 var redux = require('redux')
 
 var hxdx = require('../index.js')
 var hx = hxdx.hx
-var dx = hxdx.dx
-var connect = hxdx.connect
 
 var name = require('../examples/connect/components/name')
 var list = require('../examples/connect/components/list')
