@@ -3,7 +3,7 @@
 [![NPM version][npm-image]][npm-url]
 [![js-standard-style][standard-image]][standard-url]
 
-> simple connecter for state dispatching and rendering. 
+> simple connecter for state dispatching and rendering
 
 Connects a `redux`-style store to a `virtual-dom`-style view and sets up rendering with minimal boilerplate. Works well with functional components that take state and sometimes dispatch. 
 
