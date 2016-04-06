@@ -15,8 +15,6 @@ See also
 - [`virtual-app`](https://github.com/sethvincent/virtual-app) related idea with different dependencies
 - [`redux-react`](https://github.com/reactjs/react-redux) official connector for using redux with react
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
 ## install
 
 ```
