@@ -1,6 +1,12 @@
 # hxdx
 
-Simple connecter for state dispatching and rendering. Connects a `redux`-style store to a `virtual-dom`-style view and sets up rendering with minimal boilerplate. Works well with functional components that take state and sometimes dispatch. 
+[![NPM version][npm-image]][npm-url]
+![experimental][experimental-image]
+[![js-standard-style][standard-image]][standard-url]
+
+> simple connecter for state dispatching and rendering. 
+
+Connects a `redux`-style store to a `virtual-dom`-style view and sets up rendering with minimal boilerplate. Works well with functional components that take state and sometimes dispatch. 
 
 Exposes an `hx` function for constructing components elements, and a `dx` function for dispatching to the store within your components. Thus the name! Currently uses [`hyperx`](http://github.com/substack/hyperx) for defining components and [`main-loop`](http://github.com/Raynos/main-loop) for rendering. Doesn't require `redux`, just something that acts as a state store.
 
@@ -56,7 +62,7 @@ var button = function (state) {
 }
 ```
 
-Then just connect a top-level component function and the store
+Then just render your top-level component using the store
 
 ```javascript
 var app = function (state) {
@@ -78,7 +84,7 @@ Render a component and connect it to a store.
 - `store` a state store with `subscribe`, `dispatch`, and `getState` methods
 - `root` a base DOM element to append to (if undefined will appemd to body)
 
-Store can currently come from `redux` or `minidux` (coming soon!).
+Store can be able object that follows the [`redux`](https://github.com/reactjs/redux) API.
 
 #### `hxdx.hx('<>')`
 
@@ -88,3 +94,7 @@ Tagged template function for generating `virtual-dom` elements. Can be required 
 
 Dispatch action to the store. Can be required inside any of your components.
 
+[npm-image]: https://img.shields.io/badge/npm-v1.0.0-lightgray.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/hxdx
+[standard-image]: https://img.shields.io/badge/code%20style-standard-lightgray.svg?style=flat-square
+[standard-url]: https://github.com/feross/standard
